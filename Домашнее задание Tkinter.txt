@@ -1,0 +1,22 @@
+import tkinter as tk
+from tkinter import Label, Button, Entry, Checkbutton, Radiobutton, messagebox
+from tkinter import ttk
+app = tk.Tk()
+
+label = Label(app, text=f'Ваш результат: 0')
+label.pack()
+res = 0
+def on_button_click():
+	global res
+	res +=1
+	label.config(text=f'Ваш результат{str(res)}')
+
+button = Button(app, text='Начать', command=on_button_click)
+button.bind('<Button-1>', on_button_click)
+button.pack()
+
+
+app.title('Кликер')
+app.geometry('600x400')
+app.protocol("WN_DELETE_WINDOW", app.quit)
+app.mainloop()
